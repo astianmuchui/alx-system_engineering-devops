@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((WATER#water * STIR#stir))#bestschol
+echo $(( WATER#water + STIR#stir))#bestschol
