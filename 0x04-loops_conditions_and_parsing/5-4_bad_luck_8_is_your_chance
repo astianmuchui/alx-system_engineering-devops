@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 # Displays best school 10 times using an
-#then on the 3rd iteration, displays "bad luck"
+# then on the 3rd iteration, displays "bad luck"
 # instead of "Best School"
 
 i=0
 
 while [ $i -lt 10 ]
 do
-	if [ $i -eq 3 ]
+	if [ $i -eq 4 ]
 	then
 		echo "bad luck"
-	elif [ $i -eq 7 ]
+	elif [ $i -eq 8 ]
 	then
 		echo "good luck"
 	else
