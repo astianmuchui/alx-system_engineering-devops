@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Loops through numbers 1 to 20
+# then on the 4th iteration, displays "bad luck from China"
+# then on the 9th iteration, displays "bad luck from Japan"
+# then on the 17th iteration, displays "bad luck from Italy"
+# else, displays the number
+# implements a while loop
+
+j=1
+
+while [ $j -le 20 ]
+do
+	echo "$j"
+
+	case $j in
+		"4")
+			echo "bad luck from China"
+			;;
+		"9")
+			echo "bad luck from Japan"
+			;;
+		"17")
+			echo "bad luck from Italy"
+			;;
+	esac
+
+	(( j++ ))
+
+done
