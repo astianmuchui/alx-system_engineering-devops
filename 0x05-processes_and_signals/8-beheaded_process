@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Beheads a process
+
+pkill -f -SIGKILL 7-highlander
