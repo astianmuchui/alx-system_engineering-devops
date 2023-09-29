@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Iterates through the result of ls and displays the second field of each line
+files_list=$(ls)
+
+for f in $files_list
+do
+	echo "$f" | cut -d '-' -f2
+done
