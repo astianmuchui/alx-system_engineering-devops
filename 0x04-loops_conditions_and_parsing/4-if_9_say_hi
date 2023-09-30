@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Displays best school 10 times using an then on the 9th iteration, displays "Hi" instead of "Best School"
 
 i=0

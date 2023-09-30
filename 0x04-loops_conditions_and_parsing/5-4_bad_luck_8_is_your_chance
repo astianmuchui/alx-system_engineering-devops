@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Displays best school 10 times using an
 # then on the 3rd iteration, displays "bad luck"
 # instead of "Best School"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
 # Displays best school 10 times using an until loop
+
 i=1
 
 until [ ! $i -le 10 ]
