@@ -1,0 +1,9 @@
+# ~/.ssh/config
+
+Host ubuntu
+    HostName 54.237.0.17
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+    PreferredAuthentications publickey
+    HashKnownHosts yes
