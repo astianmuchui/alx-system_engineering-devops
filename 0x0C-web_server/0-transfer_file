@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
+# Will transfer files from the client to the server
 
-if [ "$#" -ne 4 ]; then
+if [ "$#" -lt 4 ]; then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
     exit 1
 fi
 
 filepath=$1
 server=$2
-$user=$3
+uname=$3
 ssh_key=$4
 
-scp -i "$ssh_key" -o StrictHostKeyChecking=no "$filepath" "$user@$server":~/
+scp -o StrictHostKeyChecking=no -i "$ssh_key" "$filepath" "$uname@$server":~
