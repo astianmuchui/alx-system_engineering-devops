@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # Gets apache to run
 
-sudo systemctl start apache2.service
+sudo service enable --now apache2
+sudo service start apache2
+
