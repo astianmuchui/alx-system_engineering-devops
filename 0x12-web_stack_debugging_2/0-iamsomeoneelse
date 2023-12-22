@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-su - $1
+# Changes user and then prints out the name of the user
+sudo -u $1
 echo $(whoami)
