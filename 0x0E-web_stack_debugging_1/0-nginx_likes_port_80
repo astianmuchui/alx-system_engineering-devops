@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+sudo apt-get install -y net-tools
+
+nginx_running=$(ps aux | grep nginx | grep -v grep)
+
+if [ -z "$nginx_running" ]; then
+    service nginx start
+
+# Check if is listening on port 80
+nginx_listening=$(netstat -tulpn | grep ':80')
+fi
+
+if [ -z "$nginx_listening" ]; then
+    echo "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name _;
+
+        location / {
+            root /var/www/html;
+            index index.html index.htm;
+        }
+    }" > /etc/nginx/sites-available/default
+
+    service nginx reload
+fi
