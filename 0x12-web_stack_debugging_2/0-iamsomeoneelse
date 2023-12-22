@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Changes user and then prints out the name of the user
 sudo -u "$1"
-echo "$(whoami)"
+whoami
