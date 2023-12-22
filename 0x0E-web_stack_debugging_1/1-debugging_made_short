@@ -2,4 +2,4 @@
 # Configure NGINX to listen on port 80
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx status > /dev/null 2>&1 || service nginx start
-service nginx restart
+service nginx start
