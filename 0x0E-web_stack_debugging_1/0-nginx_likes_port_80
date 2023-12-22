@@ -1,28 +1,21 @@
 #!/usr/bin/env bash
+# Configure NGINX to listen on port 80
 
-sudo apt-get install -y net-tools
+NGINX_AVAILABLE="/etc/nginx/sites-available/default"
+NGINX_ENABLED="/etc/nginx/sites-enabled/default"
 
-nginx_running=$(ps aux | grep nginx | grep -v grep)
+# Start nginx
+service nginx enable
 
-if [ -z "$nginx_running" ]; then
-    service nginx start
-
-# Check if is listening on port 80
-nginx_listening=$(netstat -tulpn | grep ':80')
+# Remove the default Nginx configuration file if it exists
+if [ -e "$NGINX_ENABLED" ]; then
+    echo "Removing default Nginx configuration file"
+    rm "$NGINX_ENABLED"
 fi
 
-if [ -z "$nginx_listening" ]; then
-    echo "server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+# Create a symbolic link to enable the custom configuration
+ln -s "$NGINX_AVAILABLE" "$NGINX_ENABLED"
 
-        server_name _;
+# Restart Nginx to apply the changes
+service nginx restart
 
-        location / {
-            root /var/www/html;
-            index index.html index.htm;
-        }
-    }" > /etc/nginx/sites-available/default
-
-    service nginx reload
-fi
