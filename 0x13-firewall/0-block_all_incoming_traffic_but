@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Block all incoming traffic but allow all outgoing traffic
+# using the uncomplicated firewall (ufw) utility.
+
+# install ufw
+sudo apt-get update -y
+sudo apt-get install ufw -y
+
+# block all incoming traffic except port 22, 80, 443
+sudo ufw default deny incoming
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+# enable ufw
+sudo ufw enable
