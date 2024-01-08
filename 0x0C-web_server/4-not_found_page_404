@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 # HTTP 404 Redirection handling
 
-sudo apt-get update -y && sudo apt-get upgrade -y
-sudo apt-get install nginx -y
-sudo ufw enable
-sudo ufw allow 'Nginx HTTP'
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/index.html
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'NGINX HTTP'
+echo 'Hello World!' | sudo tee /var/www/html/index
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
-sed -i "/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-sed -i "/listen 80 default_server/a error_page 404 /custom_404.html; location = /custom_404.html { root /usr/share/nginx/html; internal; }" /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo sed -i '/server_name _;/a \
+    error_page 404 /404.html;\n\
+    location = /404.html {\n\
+        internal;\n\
+    }' /etc/nginx/sites-available/default
 
+    sudo service nginx start
