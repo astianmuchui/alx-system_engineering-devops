@@ -19,4 +19,4 @@ if __name__ == "__main__":
             "completed": task.get("completed"),
             "username": user.get("username")
         } for task in todo if user.get("id") == task.get("userId")]
-        for user in users}, jsonfile)
+                    for user in users}, jsonfile)
