@@ -8,6 +8,6 @@ file { '/var/www/html/wp-settings.php':
 }
 
 exec { 'fix_apache':
-  command => 'sed -i s/php/php/g /var/www/html/wp-settings.php',
+  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
   path    => '/usr/local/bin/:/bin/'
 }
